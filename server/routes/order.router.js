@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log('Error GET /api/order', error);
-        res.sendStatus(500);  
+        res.sendStatus(500);
     });
 })
 
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 
         await Promise.all(pizzas.map(pizza => {
             const insertLineItemText = `INSERT INTO "line_item" ("order_id", "pizza_id", "quantity") VALUES ($1, $2, $3)`;
-            const insertLineItemValues = [orderId, pizza.id, pizza.quantity];
+            const insertLineItemValues = [orderId, pizza.pizza_id, pizza.quantity];
             return client.query(insertLineItemText, insertLineItemValues);
         }));
 
