@@ -1,18 +1,31 @@
 import React from 'react';
-import axios from 'axios';
-import './App.css';
+import { Link, Route, Switch,  } from 'react-router-dom';
+
+import Cart from '../Cart/Cart';
+import Checkout from '../Checkout/Checkout';
+import PizzaList from '../PizzaList/PizzaList';
+import CartIcon from './CartIcon';
 
 function App() {
-
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
+      <header className="sticky-top">
+        <nav className="navbar navbar-dark bg-dark">
+          <div className="container-fluid">
+            <Link to='/' className="navbar-brand">Pizza Builder</Link>
+            <Link to='/cart' className="navbar-brand">
+              <CartIcon />
+            </Link>
+          </div>
+        </nav>
       </header>
-  
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-  
+      <main>
+        <Switch>
+          <Route exact path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/" component={PizzaList} />
+        </Switch>
+      </main>
     </div>
   );
 }
