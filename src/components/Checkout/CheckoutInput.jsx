@@ -4,7 +4,7 @@ function CheckoutInput({ value, onChange, autoFill, label, description }) {
   };
   return (
     <div className="mb-3">
-      <label for={autoFill} className="form-label">{label}</label>
+      <label htmlFor={autoFill} className="form-label">{label}</label>
       <input type="text" className="form-control" id={autoFill} aria-describedby={autoFill} value={value} onChange={onChangeHandler} />
       {description && <small id={autoFill} className="form-text text-muted">{description}</small>}
     </div>

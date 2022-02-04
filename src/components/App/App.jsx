@@ -4,6 +4,8 @@ import { Link, Route, Switch,  } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import Checkout from '../Checkout/Checkout';
 import PizzaList from '../PizzaList/PizzaList';
+import ThankYou from '../ThankYou/ThankYou';
+
 import CartIcon from './CartIcon';
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/thankyou" component={ThankYou} />
           <Route path="/" component={PizzaList} />
         </Switch>
       </main>
