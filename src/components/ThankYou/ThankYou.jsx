@@ -16,9 +16,16 @@ function ThankYou() {
           <p>
             Your total is <strong>${order.total}</strong>.
           </p>
-          <p>
-            Your order will be delivered to:
-          </p>
+          {order.type === "delivery" ? (
+            <p>
+              Your order will be delivered to:
+            </p>
+          ) : (
+            <p>
+              Your order can be picked up in 30 minutes, and your address is:
+            </p>
+          )}
+
           <p>
             {order.customer_name}
           </p>
